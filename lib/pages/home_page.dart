@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/styles/app_colors.dart';
+import 'package:flutter_full_course/styles/app_text.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        const Text('Doe Fernandez'),
+        const Text('Doe Fernandez', style: AppText.subtitle3,),
       ],
     );
   }

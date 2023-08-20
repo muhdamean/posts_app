@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/pages/test_page.dart';
+import 'package:flutter_full_course/pages/home_page.dart';
+import 'package:flutter_full_course/pages/login_page.dart';
+import 'package:flutter_full_course/pages/main_page.dart';
 import 'package:flutter_full_course/styles/app_colors.dart';
 
 void main() {
@@ -14,14 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           fontFamily: 'Urbanist',
-          scaffoldBackgroundColor: AppColors.background),
-      home: const TestPage(),
-      //initialRoute: '/',
-      // routes: {
-      //   '/': (context) => const LoginPage(),
-      //   '/home': (context) => const HomePage(),
-      //   '/main': (context) => const MainPage(),
-      // },
+          scaffoldBackgroundColor: AppColors.background,
+          brightness: Brightness.dark),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const LoginPage(),
+        '/home': (context) => const HomePage(),
+        '/main': (context) => const MainPage(),
+      },
     );
   }
 }
