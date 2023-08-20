@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_course/styles/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,7 +7,40 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Hello this is home')),
+        appBar: AppBar(
+          backgroundColor: AppColors.background,
+          title: const Text('5minuteflutter'),
+          centerTitle: false,
+          actions: const [
+            Icon(Icons.location_on_outlined),
+          ],
+        ),
+        body: ListView(
+          children: mockUsersFromServer(),
+        ));
+  }
+
+  Widget _userItem() {
+    return Row(
+      children: [
+        Image.asset(
+          'assets/temp/user1.jpg',
+          width: 40,
+          height: 40,
+        ),
+        const SizedBox(
+          width: 16,
+        ),
+        const Text('Doe Fernandez'),
+      ],
     );
+  }
+
+  List<Widget> mockUsersFromServer() {
+    List<Widget> users = [];
+    for (var i = 0; i < 500; i++) {
+      users.add(_userItem());
+    }
+    return users;
   }
 }
