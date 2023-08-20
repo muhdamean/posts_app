@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_course/components/post_item.dart';
 import 'package:flutter_full_course/styles/app_colors.dart';
 import 'package:flutter_full_course/styles/app_text.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  List<String> users = [];
 
   @override
   Widget build(BuildContext context) {
+    mockUsersFromServer();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.background,
@@ -16,32 +20,33 @@ class HomePage extends StatelessWidget {
             Icon(Icons.location_on_outlined),
           ],
         ),
-        body: ListView(
-          children: mockUsersFromServer(),
+        body: ListView.separated(
+          itemBuilder: (context, index) {
+            return PostItem(
+              user: users[index],
+            );
+          },
+          itemCount: users.length,
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(
+              height: 24,
+            );
+          },
         ));
   }
 
-  Widget _userItem() {
-    return Row(
-      children: [
-        Image.asset(
-          'assets/temp/user1.jpg',
-          width: 40,
-          height: 40,
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        const Text('Doe Fernandez', style: AppText.subtitle3,),
-      ],
-    );
-  }
-
-  List<Widget> mockUsersFromServer() {
-    List<Widget> users = [];
-    for (var i = 0; i < 500; i++) {
-      users.add(_userItem());
+  mockUsersFromServer() {
+    for (var i = 0; i < 100; i++) {
+      users.add('User number $i');
     }
     return users;
   }
+
+  // List<Widget> mockUsersFromServer() {
+  //   List<Widget> users = [];
+  //   for (var i = 0; i < 500; i++) {
+  //     users.add(PostItem());
+  //   }
+  //   return users;
+  // }
 }

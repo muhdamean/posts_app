@@ -47,7 +47,7 @@ class _MainPageState extends State<MainPage> {
   }
 
   final pages = [
-    const HomePage(),
+     HomePage(),
     const Center(
       child: Text('Favorite'),
     ),
