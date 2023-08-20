@@ -7,13 +7,21 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Button Navigation Container'),
+          title: const Text('Button Navigation Container'),
         ),
         body: Container(
-          child: Text('Center Text'),
+          child: const Text('Center Text'),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: [BottomNavigationBarItem(icon: Icon(Icons.home))],
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), label: 'Favorite'),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add Post'),
+          ],
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          backgroundColor: Colors.amber,
         ));
   }
 }
