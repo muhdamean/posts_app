@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/components/post_item.dart';
 import 'package:flutter_full_course/styles/app_colors.dart';
-import 'package:flutter_full_course/styles/app_text.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
