@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                   onPressed: () {
-                    print('Forgot is cliked');
+                    debugPrint('Forgot is cliked');
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
               height: 48,
               child: ElevatedButton(
                   onPressed: () {
-                    print('Google is clicked');
+                    debugPrint('Google is clicked');
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
