@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
          //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        //useMaterial3: true,
         fontFamily: 'Urbanist',
         scaffoldBackgroundColor: AppColors.background,
         brightness: Brightness.dark,
