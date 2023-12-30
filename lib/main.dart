@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_course/config/app_routes.dart';
+import 'package:flutter_full_course/pages/edit_profile.dart';
 import 'package:flutter_full_course/pages/home_page.dart';
 import 'package:flutter_full_course/pages/login_page.dart';
 import 'package:flutter_full_course/pages/main_page.dart';
@@ -15,18 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-         //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         //useMaterial3: true,
         fontFamily: 'Urbanist',
         scaffoldBackgroundColor: AppColors.background,
         brightness: Brightness.dark,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const LoginPage(),
-        '/home': (context) => HomePage(),
-        '/main': (context) => const MainPage(),
-      },
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
     );
   }
 }

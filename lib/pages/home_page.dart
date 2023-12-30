@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/components/post_item.dart';
 import 'package:flutter_full_course/components/toolbar.dart';
+import 'package:flutter_full_course/config/app_icons.dart';
+import 'package:flutter_full_course/config/app_strings.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,11 +15,11 @@ class HomePage extends StatelessWidget {
     mockUsersFromServer();
     return Scaffold(
         appBar: Toolbar(
-          title: '5minuteflutter',
+          title: AppStrings.appName,
           actions: [
             IconButton(
               onPressed: () {},
-              icon: SvgPicture.asset('assets/svg/ic_location.svg'),
+              icon: SvgPicture.asset(AppIcons.icLocation),
             ),
           ],
         ),
