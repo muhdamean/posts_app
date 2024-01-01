@@ -2,7 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
+import 'package:flutter_full_course/config/app_routes.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
+import 'package:flutter_full_course/model/user.dart';
+import 'package:flutter_full_course/pages/main_page.dart';
 import 'package:http/http.dart' as http;
 
 const baseUrl = 'http://localhost:8080';
@@ -46,7 +49,8 @@ class LoginPage extends StatelessWidget {
                   height: 60,
                 ),
                 TextField(
-                  onChanged: (value) => username=value, //controller: usernameController,
+                  onChanged: (value) =>
+                      username = value, //controller: usernameController,
                   decoration: InputDecoration(
                     hintText: AppStrings.username,
                     border: OutlineInputBorder(
@@ -59,7 +63,8 @@ class LoginPage extends StatelessWidget {
                   height: 16,
                 ),
                 TextField(
-                  onChanged: (value) => password=value,//controller: passwordController,
+                  onChanged: (value) =>
+                      password = value, //controller: passwordController,
                   decoration: InputDecoration(
                     hintText: AppStrings.password,
                     border: OutlineInputBorder(
@@ -86,8 +91,16 @@ class LoginPage extends StatelessWidget {
                   height: 48,
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () {
-                        doLogin();
+                      onPressed: () async {
+                        final user = await doLogin();
+                        Navigator.of(context).push(PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) {
+                            return MainPage(
+                              user: user,
+                            );
+                          },
+                        ));
                         // Navigator.of(context)
                         //     .pushReplacementNamed(AppRoutes.main);
                       },
@@ -188,7 +201,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Future<String> doLogin() async {
+  Future<User> doLogin() async {
     // final username = usernameController.text;
     // final password = passwordController.text;
     final body = {'username': username, 'password': password};
@@ -198,7 +211,9 @@ class LoginPage extends StatelessWidget {
     );
     if (response.statusCode == 200) {
       print(response.body);
-      return response.body;
+      final json = jsonDecode(response.body);
+      final user = User.fromJson(json['data']);
+      return user;
     } else {
       print(response.body);
       print('You have an error!');
