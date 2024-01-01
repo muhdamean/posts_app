@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_course/components/bottom_navigation_item.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
 import 'package:flutter_full_course/pages/home_page.dart';
@@ -18,6 +19,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: pages[currentIndex.index],
       bottomNavigationBar: MyBottomNavigation(
         currentIndex: currentIndex,
@@ -109,61 +111,33 @@ class MyBottomNavigation extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: IconButton(
-                      onPressed: () => onTap(Menus.home),
-                      icon: SvgPicture.asset(
-                        AppIcons.icHome,
-                        colorFilter: ColorFilter.mode(
-                          currentIndex == Menus.home
-                              ? Colors.black
-                              : Colors.black.withOpacity(0.3),
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
+                    child: BottomNavigationItem(
+                        onPressed: () => onTap(Menus.home),
+                        icon: AppIcons.icHome,
+                        current: currentIndex,
+                        name: Menus.home),
                   ),
                   Expanded(
-                    child: IconButton(
-                      onPressed: () => onTap(Menus.favorite),
-                      icon: SvgPicture.asset(
-                        AppIcons.icFavorite,
-                        colorFilter: ColorFilter.mode(
-                          currentIndex == Menus.favorite
-                              ? Colors.black
-                              : Colors.black.withOpacity(0.3),
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
+                    child: BottomNavigationItem(
+                        onPressed: () => onTap(Menus.favorite),
+                        icon: AppIcons.icFavorite,
+                        current: currentIndex,
+                        name: Menus.favorite),
                   ),
                   const Spacer(),
                   Expanded(
-                    child: IconButton(
-                      onPressed: () => onTap(Menus.message),
-                      icon: SvgPicture.asset(
-                        AppIcons.icMessage,
-                        colorFilter: ColorFilter.mode(
-                          currentIndex == Menus.message
-                              ? Colors.black
-                              : Colors.black.withOpacity(0.3),
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
+                    child: BottomNavigationItem(
+                        onPressed: () => onTap(Menus.message),
+                        icon: AppIcons.icMessage,
+                        current: currentIndex,
+                        name: Menus.message),
                   ),
                   Expanded(
-                    child: IconButton(
-                      onPressed: () => onTap(Menus.user),
-                      icon: SvgPicture.asset(
-                        AppIcons.icUser,
-                        colorFilter: ColorFilter.mode(
-                          currentIndex == Menus.user
-                              ? Colors.black
-                              : Colors.black.withOpacity(0.3),
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
+                    child: BottomNavigationItem(
+                        onPressed: () => onTap(Menus.user),
+                        icon: AppIcons.icUser,
+                        current: currentIndex,
+                        name: Menus.user),
                   ),
                 ],
               ),
