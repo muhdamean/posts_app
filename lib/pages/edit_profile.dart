@@ -9,7 +9,7 @@ import 'package:flutter_full_course/styles/app_text.dart';
 enum Gender { none, male, female, other }
 
 class EditProfilePage extends StatefulWidget {
-  EditProfilePage({super.key});
+  const EditProfilePage({super.key});
 
   @override
   State<EditProfilePage> createState() => _EditProfilePageState();
@@ -21,7 +21,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Toolbar(title: AppStrings.editProfile),
+      appBar: const Toolbar(title: AppStrings.editProfile),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -29,8 +29,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
             children: [
               Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: UserAvatar(
                       size: 120,
                     ),
@@ -39,12 +39,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     bottom: 0,
                     right: 0,
                     child: Container(
-                      padding: EdgeInsets.all(4),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
                         color: AppColors.primary,
                         borderRadius: BorderRadius.all(Radius.circular(6)),
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.edit,
                         size: 20,
                         color: Colors.black,
@@ -56,23 +56,23 @@ class _EditProfilePageState extends State<EditProfilePage> {
               const SizedBox(
                 height: 60,
               ),
-              AppTextField(hint: AppStrings.firstName),
+              const AppTextField(hint: AppStrings.firstName),
               const SizedBox(
                 height: 16,
               ),
-              AppTextField(hint: AppStrings.lastName),
+              const AppTextField(hint: AppStrings.lastName),
               const SizedBox(
                 height: 16,
               ),
-              AppTextField(hint: AppStrings.phoneNumber),
+              const AppTextField(hint: AppStrings.phoneNumber),
               const SizedBox(
                 height: 16,
               ),
-              AppTextField(hint: AppStrings.location),
+              const AppTextField(hint: AppStrings.location),
               const SizedBox(
                 height: 16,
               ),
-              AppTextField(hint: AppStrings.birthday),
+              const AppTextField(hint: AppStrings.birthday),
               const SizedBox(
                 height: 16,
               ),
@@ -84,7 +84,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ),
                 decoration: BoxDecoration(
                     color: AppColors.fieldColor,
-                    borderRadius: BorderRadius.all(Radius.circular(12))),
+                    borderRadius: const BorderRadius.all(Radius.circular(12))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

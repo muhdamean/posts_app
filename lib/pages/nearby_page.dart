@@ -29,7 +29,7 @@ class NearbyPage extends StatelessWidget {
           MarkerLayer(
             markers: [
               Marker(
-                point: LatLng(51.509364, -0.128928),
+                point: const LatLng(51.509364, -0.128928),
                 width: 100,
                 height: 50,
                 child: Column(
@@ -37,11 +37,11 @@ class NearbyPage extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(14)),
                       ),
-                      child: Text(
+                      child: const Text(
                         AppStrings.username,
                         style: TextStyle(color: Colors.black),
                       ),
@@ -49,7 +49,7 @@ class NearbyPage extends StatelessWidget {
                     SvgPicture.asset(
                       AppIcons.icLocation,
                       colorFilter:
-                          ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                          const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                     )
                   ],
                 ),

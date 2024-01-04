@@ -10,8 +10,8 @@ class AppRoutes {
     login: (context) => LoginPage(),
     home: (context) => HomePage(),
     main: (context) => MainPage(user: User(1, 'firstname', 'lastname', 'mobile', 'birthday', 'gender', false),),
-    editProfile: (context) => EditProfilePage(),
-    nearby: (context) => NearbyPage(),
+    editProfile: (context) => const EditProfilePage(),
+    nearby: (context) => const NearbyPage(),
   };
 
   static const login = '/';

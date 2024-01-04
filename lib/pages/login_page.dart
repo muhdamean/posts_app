@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
-import 'package:flutter_full_course/config/app_routes.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
 import 'package:flutter_full_course/model/user.dart';
 import 'package:flutter_full_course/pages/main_page.dart';
