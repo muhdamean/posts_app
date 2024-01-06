@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
+import 'package:flutter_full_course/config/app_routes.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
 import 'package:flutter_full_course/model/user.dart';
 import 'package:flutter_full_course/pages/main_page.dart';
+import 'package:flutter_full_course/provider/user_provider.dart';
 import 'package:http/http.dart' as http;
 
 const baseUrl = 'http://localhost:8080';
@@ -92,14 +94,17 @@ class LoginPage extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () async {
                         final user = await doLogin();
-                        Navigator.of(context).push(PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                            return MainPage(
-                              user: user,
-                            );
-                          },
-                        ));
+                        UserProvider.of(context)?.updateUser(user);
+                        Navigator.of(context)
+                            .pushReplacementNamed(AppRoutes.main);
+                        // Navigator.of(context).push(PageRouteBuilder(
+                        //   pageBuilder:
+                        //       (context, animation, secondaryAnimation) {
+                        //     return MainPage(
+                        //       user: user,
+                        //     );
+                        //   },
+                        // ));
                         // Navigator.of(context)
                         //     .pushReplacementNamed(AppRoutes.main);
                       },
@@ -209,13 +214,13 @@ class LoginPage extends StatelessWidget {
       body: jsonEncode(body),
     );
     if (response.statusCode == 200) {
-      print(response.body);
+      debugPrint(response.body);
       final json = jsonDecode(response.body);
       final user = User.fromJson(json['data']);
       return user;
     } else {
-      print(response.body);
-      print('You have an error!');
+      debugPrint(response.body);
+      debugPrint('You have an error!');
       throw Exception('Error');
     }
   }
