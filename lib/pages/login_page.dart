@@ -1,21 +1,17 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
 import 'package:flutter_full_course/config/app_routes.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
-import 'package:flutter_full_course/model/user.dart';
-import 'package:flutter_full_course/provider/user_provider.dart';
-import 'package:http/http.dart' as http;
-
-const baseUrl = 'http://localhost:8080';
+import 'package:flutter_full_course/provider/app_repo.dart';
+import 'package:flutter_full_course/provider/login_provider.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
-  final loginRoute = '$baseUrl/login';
+  //final loginRoute = '$baseUrl/login';
   // final usernameController = TextEditingController();
   // final passwordController = TextEditingController();
-  var username = '';
-  var password = '';
+  // var username = '';
+  // var password = '';
 
   LoginPage({super.key});
 
@@ -50,7 +46,9 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) =>
-                      username = value, //controller: usernameController,
+                      Provider.of<LoginProvider>(context, listen: false)
+                          .username = value,
+                  //username = value, //controller: usernameController,
                   decoration: InputDecoration(
                     hintText: AppStrings.username,
                     border: OutlineInputBorder(
@@ -64,7 +62,9 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) =>
-                      password = value, //controller: passwordController,
+                      Provider.of<LoginProvider>(context, listen: false)
+                          .password = value,
+                  //password = value, //controller: passwordController,
                   decoration: InputDecoration(
                     hintText: AppStrings.password,
                     border: OutlineInputBorder(
@@ -91,19 +91,16 @@ class LoginPage extends StatelessWidget {
                   height: 48,
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () async {
-                        final user = await doLogin();
-                        UserProvider.of(context)?.updateUser(user);
-                        Navigator.of(context)
-                            .pushReplacementNamed(AppRoutes.main);
-                        // Navigator.of(context).push(PageRouteBuilder(
-                        //   pageBuilder:
-                        //       (context, animation, secondaryAnimation) {
-                        //     return MainPage(
-                        //       user: user,
-                        //     );
-                        //   },
-                        // ));
+                      onPressed: () {
+                        Provider.of<LoginProvider>(context, listen: false)
+                            .login()
+                            .then((value) {
+                          Provider.of<AppRepo>(context, listen: false).user = value.user;
+                          Provider.of<AppRepo>(context, listen: false).token = value.token;
+                          Navigator.of(context)
+                              .pushReplacementNamed(AppRoutes.main);
+                        });
+                        //UserProvider.of(context)?.updateUser(user);
                         // Navigator.of(context)
                         //     .pushReplacementNamed(AppRoutes.main);
                       },
@@ -202,25 +199,5 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<User> doLogin() async {
-    // final username = usernameController.text;
-    // final password = passwordController.text;
-    final body = {'username': username, 'password': password};
-    final response = await http.post(
-      Uri.parse(loginRoute),
-      body: jsonEncode(body),
-    );
-    if (response.statusCode == 200) {
-      debugPrint(response.body);
-      final json = jsonDecode(response.body);
-      final user = User.fromJson(json['data']);
-      return user;
-    } else {
-      debugPrint(response.body);
-      debugPrint('You have an error!');
-      throw Exception('Error');
-    }
   }
 }
