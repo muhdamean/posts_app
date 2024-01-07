@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_full_course/data/response/login_response.dart';
 import 'package:flutter_full_course/data/services/login_service.dart';
-
-import '../model/user.dart';
 
 class LoginProvider extends ChangeNotifier {
   var username = '';

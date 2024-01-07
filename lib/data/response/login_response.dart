@@ -1,4 +1,4 @@
-import 'package:flutter_full_course/model/user.dart';
+import 'package:flutter_full_course/data/model/user.dart';
 
 class LoginResponse {
   final User user;
