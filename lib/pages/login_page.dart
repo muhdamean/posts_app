@@ -46,9 +46,10 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) =>
-                      Provider.of<LoginProvider>(context, listen: false)
+                  context.read<LoginProvider>()
                           .username = value,
-                  //username = value, //controller: usernameController,
+                      // Provider.of<LoginProvider>(context, listen: false)
+                      //     .username = value,
                   decoration: InputDecoration(
                     hintText: AppStrings.username,
                     border: OutlineInputBorder(
@@ -62,9 +63,10 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) =>
-                      Provider.of<LoginProvider>(context, listen: false)
+                  context.read<LoginProvider>()
                           .password = value,
-                  //password = value, //controller: passwordController,
+                      // Provider.of<LoginProvider>(context, listen: false)
+                      //     .password = value,
                   decoration: InputDecoration(
                     hintText: AppStrings.password,
                     border: OutlineInputBorder(
@@ -92,11 +94,11 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                       onPressed: () {
-                        Provider.of<LoginProvider>(context, listen: false)
+                        context.read<LoginProvider>()
                             .login()
                             .then((value) {
-                          Provider.of<AppRepo>(context, listen: false).user = value.user;
-                          Provider.of<AppRepo>(context, listen: false).token = value.token;
+                          context.read<AppRepo>().user = value.user;
+                          context.read<AppRepo>().token = value.token;
                           Navigator.of(context)
                               .pushReplacementNamed(AppRoutes.main);
                         });
