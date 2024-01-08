@@ -25,10 +25,16 @@ class PostProvider extends ChangeNotifier {
   pickImage(ImageSource source) async {
     try {
       final path = await Utils.pickImage(source);
-      imagePath = path;
+      final croppedImage = await Utils.cropImage(path);
+      imagePath = croppedImage?.path ?? '';
       notifyListeners();
     } catch (e) {
       debugPrint(e.toString());
     }
+  }
+
+  deleteImage() {
+    imagePath = null;
+    notifyListeners();
   }
 }

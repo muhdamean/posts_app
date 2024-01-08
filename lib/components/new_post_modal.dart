@@ -68,7 +68,22 @@ class NewPostModal extends StatelessWidget {
                     ? const Center(
                         child: Text('Upload from gallery'),
                       )
-                    : Image.file(File(value.imagePath!)),
+                    : ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(16)),
+                        child: Stack(
+                          children: [
+                            Image.file(File(value.imagePath!)),
+                            IconButton(
+                              onPressed:()=> value.deleteImage(),
+                              icon: const Icon(
+                                Icons.delete_rounded,
+                                color: Colors.red,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
               ),
             ),
           ),
@@ -84,13 +99,18 @@ class NewPostModal extends StatelessWidget {
             height: 16,
           ),
           ElevatedButton(
-              onPressed: () {
-                context
-                    .read<PostProvider>()
-                    .createPost(context.read<AppRepo>().token!)
-                    .then((value) => Navigator.of(context).pop());
-              },
-              child: const Text('Create Post'))
+            onPressed: () {
+              context
+                  .read<PostProvider>()
+                  .createPost(context.read<AppRepo>().token!)
+                  .then((value) => Navigator.of(context).pop());
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.black,
+            ),
+            child: const Text('Create Post'),
+          )
         ],
       ),
     );
