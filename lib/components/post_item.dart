@@ -32,11 +32,13 @@ class PostItem extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 12,
-          ),
-          Image.network(
-              '${AppConfig.baseUrl}${post.image}'), //Image.asset('assets/temp/post1.jpg'),
+          if (post.image != null) ...[
+            const SizedBox(
+              height: 12,
+            ),
+            Image.network(
+                '${AppConfig.baseUrl}${post.image}'), //Image.asset('assets/temp/post1.jpg'),
+          ],
           const SizedBox(
             height: 12,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_course/components/new_post_modal.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
 import 'package:flutter_full_course/pages/home_page.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_svg/svg.dart';
 
 class MainPage extends StatefulWidget {
   //final User user;
- const MainPage({super.key});
+  const MainPage({super.key});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -23,10 +24,23 @@ class _MainPageState extends State<MainPage> {
       body: pages[currentIndex.index],
       bottomNavigationBar: MyBottomNavigation(
         currentIndex: currentIndex,
-        onTap: (value) => setState(() {
-          debugPrint(value.index.toString());
-          currentIndex = value;
-        }),
+        onTap: (value) {
+          if (value == Menus.add) {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              builder: (context) {
+                return NewPostModal();
+              },
+            );
+            return;
+          }
+          setState(() {
+            debugPrint(value.index.toString());
+            currentIndex = value;
+          });
+        },
       ),
       // bottomNavigationBar: BottomNavigationBar(
       //   items: [

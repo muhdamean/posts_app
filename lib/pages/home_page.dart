@@ -27,32 +27,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // mockUsersFromServer();
     return Scaffold(
-        appBar: Toolbar(
-          title: AppStrings.appName,
-          actions: [
-            IconButton(
-              onPressed: () =>
-                  Navigator.of(context).pushNamed(AppRoutes.nearby),
-              icon: SvgPicture.asset(AppIcons.icLocation),
-            ),
-          ],
-        ),
-        body: Consumer<PostProvider>(
-          builder: (context, value, child) {
-            return ListView.separated(
-              itemBuilder: (context, index) {
-                return PostItem(
-                  post: value.list[index],
-                );
-              },
-              itemCount: value.list.length,
-              separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(
-                  height: 24,
-                );
-              },
-            );
-          },
-        ));
+      appBar: Toolbar(
+        title: AppStrings.appName,
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).pushNamed(AppRoutes.nearby),
+            icon: SvgPicture.asset(AppIcons.icLocation),
+          ),
+        ],
+      ),
+      body: Consumer<PostProvider>(
+        builder: (context, value, child) {
+          return ListView.separated(
+            itemBuilder: (context, index) {
+              return PostItem(
+                post: value.list[index],
+              );
+            },
+            itemCount: value.list.length,
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(
+                height: 24,
+              );
+            },
+          );
+        },
+      ),
+    );
   }
 }
