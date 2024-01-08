@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_full_course/config/app_config.dart';
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart' as parser;
 
 abstract class ServiceBase<T> {
   Future<T> call();
@@ -25,11 +27,29 @@ abstract class ServiceBase<T> {
     try {
       // final response =
       //     await http.post(_getV1Url(apiUrl), body: jsonEncode(body));
-      final response =
-          await MyRequest(token).post(_getV1Url(apiUrl), body: jsonEncode(body));
+      final response = await MyRequest(token)
+          .post(_getV1Url(apiUrl), body: jsonEncode(body));
       return _handleResponse(response);
     } catch (e) {
       throw Exception("Error: $e");
+    }
+  }
+
+  Future<Map<String, dynamic>> upload(
+      String apiUrl, String fieldName, String path,
+      {String? token}) async {
+    try {
+      final client = http.MultipartRequest('POST', _getV1Url(apiUrl));
+      if (token != null) {
+        client.headers.addAll({'Authorization': 'Bearer $token'});
+      }
+      client.files.add(await http.MultipartFile.fromPath(fieldName, path,
+          contentType: parser.MediaType('image', 'jpeg')));
+
+      return _handleResponse(
+          await http.Response.fromStream(await client.send()));
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
