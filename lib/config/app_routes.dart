@@ -10,9 +10,9 @@ class AppRoutes {
   static final pages = {
     login: (context) => ChangeNotifierProvider(
           create: (context) => LoginProvider(),
-          child: LoginPage(),
+          child: const LoginPage(),
         ),
-    home: (context) => HomePage(),
+    home: (context) => const HomePage(),
     main: (context) => const MainPage(),
     editProfile: (context) => const EditProfilePage(),
     nearby: (context) => const NearbyPage(),

@@ -4,7 +4,7 @@ import 'package:flutter_full_course/data/services/get_post_service.dart';
 
 class PostProvider extends ChangeNotifier {
   final List<Post> list = [];
-  gtePost() async {
+  getPost() async {
     list.clear();
     list.addAll(await GetPostService().call());
     notifyListeners();

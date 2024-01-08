@@ -13,7 +13,7 @@ class LoginPage extends StatelessWidget {
   // var username = '';
   // var password = '';
 
-  LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +46,9 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) =>
-                  context.read<LoginProvider>()
-                          .username = value,
-                      // Provider.of<LoginProvider>(context, listen: false)
-                      //     .username = value,
+                      context.read<LoginProvider>().username = value,
+                  // Provider.of<LoginProvider>(context, listen: false)
+                  //     .username = value,
                   decoration: InputDecoration(
                     hintText: AppStrings.username,
                     border: OutlineInputBorder(
@@ -63,10 +62,9 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextField(
                   onChanged: (value) =>
-                  context.read<LoginProvider>()
-                          .password = value,
-                      // Provider.of<LoginProvider>(context, listen: false)
-                      //     .password = value,
+                      context.read<LoginProvider>().password = value,
+                  // Provider.of<LoginProvider>(context, listen: false)
+                  //     .password = value,
                   decoration: InputDecoration(
                     hintText: AppStrings.password,
                     border: OutlineInputBorder(
@@ -93,24 +91,20 @@ class LoginPage extends StatelessWidget {
                   height: 48,
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () {
-                        context.read<LoginProvider>()
-                            .login()
-                            .then((value) {
-                          context.read<AppRepo>().user = value.user;
-                          context.read<AppRepo>().token = value.token;
-                          Navigator.of(context)
-                              .pushReplacementNamed(AppRoutes.main);
-                        });
-                        //UserProvider.of(context)?.updateUser(user);
-                        // Navigator.of(context)
-                        //     .pushReplacementNamed(AppRoutes.main);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.amber,
-                        foregroundColor: Colors.black,
-                      ),
-                      child: const Text(AppStrings.login)),
+                    onPressed: () {
+                      context.read<LoginProvider>().login().then((value) {
+                        context.read<AppRepo>().user = value.user;
+                        context.read<AppRepo>().token = value.token;
+                        Navigator.of(context)
+                            .pushReplacementNamed(AppRoutes.main);
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.amber,
+                      foregroundColor: Colors.black,
+                    ),
+                    child: const Text(AppStrings.login),
+                  ),
                 ),
                 const Spacer(),
                 const Text(AppStrings.orSignInWith,
@@ -123,29 +117,30 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: 48,
                   child: ElevatedButton(
-                      onPressed: () {
-                        debugPrint('Google is clicked');
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(50)),
-                          )),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            AppIcons.icGoogle,
-                            width: 22,
-                            height: 22,
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          const Text(AppStrings.loginWithGoogle)
-                        ],
-                      )),
+                    onPressed: () {
+                      debugPrint('Google is clicked');
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          AppIcons.icGoogle,
+                          width: 22,
+                          height: 22,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Text(AppStrings.loginWithGoogle)
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 16,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/bottom_navigation_item.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
 import 'package:flutter_full_course/pages/home_page.dart';
@@ -65,7 +64,7 @@ class _MainPageState extends State<MainPage> {
   }
 
   final pages = [
-    HomePage(),
+    const HomePage(),
     const Center(
       child: Text(AppStrings.favorites),
     ),
@@ -75,7 +74,7 @@ class _MainPageState extends State<MainPage> {
     const Center(
       child: Text(AppStrings.messages),
     ),
-    ProfilePage(),
+    const ProfilePage(),
   ];
 }
 
