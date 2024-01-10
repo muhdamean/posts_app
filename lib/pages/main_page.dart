@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_full_course/components/new_post_modal.dart';
 import 'package:flutter_full_course/config/app_icons.dart';
 import 'package:flutter_full_course/config/app_strings.dart';
+import 'package:flutter_full_course/pages/chat_page.dart';
 import 'package:flutter_full_course/pages/home_page.dart';
 import 'package:flutter_full_course/pages/profile_page.dart';
 import 'package:flutter_full_course/styles/app_colors.dart';
@@ -85,9 +86,7 @@ class _MainPageState extends State<MainPage> {
     const Center(
       child: Text(AppStrings.posts),
     ),
-    const Center(
-      child: Text(AppStrings.messages),
-    ),
+    ChatPage(),
     const ProfilePage(),
   ];
 }
