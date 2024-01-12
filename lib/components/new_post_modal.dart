@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/app_text_field.dart';
-import 'package:flutter_full_course/provider/app_repo.dart';
-import 'package:flutter_full_course/provider/post_provider.dart';
-import 'package:flutter_full_course/styles/app_colors.dart';
-import 'package:flutter_full_course/styles/app_text.dart';
+import 'package:posts_app/components/app_text_field.dart';
+import 'package:posts_app/provider/app_repo.dart';
+import 'package:posts_app/provider/post_provider.dart';
+import 'package:posts_app/styles/app_colors.dart';
+import 'package:posts_app/styles/app_text.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -75,7 +75,7 @@ class NewPostModal extends StatelessWidget {
                           children: [
                             Image.file(File(value.imagePath!)),
                             IconButton(
-                              onPressed:()=> value.deleteImage(),
+                              onPressed: () => value.deleteImage(),
                               icon: const Icon(
                                 Icons.delete_rounded,
                                 color: Colors.red,

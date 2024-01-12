@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/toolbar.dart';
-import 'package:flutter_full_course/components/user_page_item.dart';
-import 'package:flutter_full_course/config/app_strings.dart';
-import 'package:flutter_full_course/data/model/user.dart';
-import 'package:flutter_full_course/provider/user_provider.dart';
+import 'package:posts_app/components/toolbar.dart';
+import 'package:posts_app/components/user_page_item.dart';
+import 'package:posts_app/config/app_strings.dart';
+import 'package:posts_app/data/model/user.dart';
+import 'package:posts_app/provider/user_provider.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
@@ -73,7 +73,8 @@ class _NearbyPageState extends State<NearbyPage> {
                                     }
                                   }
                                   pageController.animateToPage(page,
-                                      duration: const Duration(microseconds: 250),
+                                      duration:
+                                          const Duration(microseconds: 250),
                                       curve: Curves.easeIn);
                                 },
                                 child: Column(

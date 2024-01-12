@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/config/app_config.dart';
-import 'package:flutter_full_course/data/model/post.dart';
-import 'package:flutter_full_course/provider/app_repo.dart';
+import 'package:posts_app/config/app_config.dart';
+import 'package:posts_app/data/model/post.dart';
+import 'package:posts_app/provider/app_repo.dart';
 import 'package:provider/provider.dart';
 
 class UserPage extends StatefulWidget {

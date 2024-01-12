@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/chat_me_item.dart';
-import 'package:flutter_full_course/components/chat_other_item.dart';
-import 'package:flutter_full_course/components/toolbar.dart';
-import 'package:flutter_full_course/provider/app_repo.dart';
+import 'package:posts_app/components/chat_me_item.dart';
+import 'package:posts_app/components/chat_other_item.dart';
+import 'package:posts_app/components/toolbar.dart';
+import 'package:posts_app/provider/app_repo.dart';
 import 'package:provider/provider.dart';
 
 class ChatPage extends StatelessWidget {

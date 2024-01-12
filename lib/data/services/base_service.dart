@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_full_course/config/app_config.dart';
+import 'package:posts_app/config/app_config.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart' as parser;
 

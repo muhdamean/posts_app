@@ -1,5 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:flutter_full_course/model/user.dart';
+// import 'package:posts_app/model/user.dart';
 
 // class UserProvider extends InheritedWidget {
 //   @override

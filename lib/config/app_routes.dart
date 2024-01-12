@@ -1,10 +1,10 @@
-import 'package:flutter_full_course/pages/edit_profile.dart';
-import 'package:flutter_full_course/pages/home_page.dart';
-import 'package:flutter_full_course/pages/login_page.dart';
-import 'package:flutter_full_course/pages/main_page.dart';
-import 'package:flutter_full_course/pages/nearby_page.dart';
-import 'package:flutter_full_course/pages/user_page.dart';
-import 'package:flutter_full_course/provider/login_provider.dart';
+import 'package:posts_app/pages/edit_profile.dart';
+import 'package:posts_app/pages/home_page.dart';
+import 'package:posts_app/pages/login_page.dart';
+import 'package:posts_app/pages/main_page.dart';
+import 'package:posts_app/pages/nearby_page.dart';
+import 'package:posts_app/pages/user_page.dart';
+import 'package:posts_app/provider/login_provider.dart';
 import 'package:provider/provider.dart';
 
 class AppRoutes {
@@ -18,7 +18,6 @@ class AppRoutes {
     editProfile: (context) => const EditProfilePage(),
     nearby: (context) => const NearbyPage(),
     user: (context) => const UserPage(),
-
   };
 
   static const login = '/';

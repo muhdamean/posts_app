@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/styles/app_colors.dart';
+import 'package:posts_app/styles/app_colors.dart';
 
 class AppTextField extends StatelessWidget {
   final String hint;

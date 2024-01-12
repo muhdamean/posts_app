@@ -1,4 +1,4 @@
-import 'package:flutter_full_course/data/model/user.dart';
+import 'package:posts_app/data/model/user.dart';
 
 class Post {
   final int? id;
@@ -13,6 +13,6 @@ class Post {
       json['id'],
       json['message'],
       json['owner'] == null ? null : User.fromJson(json['owner']),
-      json['date']==null? null : DateTime.parse( json['date']),
+      json['date'] == null ? null : DateTime.parse(json['date']),
       json['image']);
 }

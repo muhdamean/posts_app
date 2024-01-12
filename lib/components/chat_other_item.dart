@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/user_avatar.dart';
-import 'package:flutter_full_course/data/model/chat.dart';
-import 'package:flutter_full_course/styles/app_colors.dart';
+import 'package:posts_app/components/user_avatar.dart';
+import 'package:posts_app/data/model/chat.dart';
+import 'package:posts_app/styles/app_colors.dart';
 
 class ChatOtherItem extends StatelessWidget {
   final Chat chat;

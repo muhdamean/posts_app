@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/new_post_modal.dart';
-import 'package:flutter_full_course/config/app_icons.dart';
-import 'package:flutter_full_course/config/app_strings.dart';
-import 'package:flutter_full_course/pages/chat_page.dart';
-import 'package:flutter_full_course/pages/home_page.dart';
-import 'package:flutter_full_course/pages/profile_page.dart';
-import 'package:flutter_full_course/styles/app_colors.dart';
+import 'package:posts_app/components/new_post_modal.dart';
+import 'package:posts_app/config/app_icons.dart';
+import 'package:posts_app/config/app_strings.dart';
+import 'package:posts_app/pages/chat_page.dart';
+import 'package:posts_app/pages/home_page.dart';
+import 'package:posts_app/pages/profile_page.dart';
+import 'package:posts_app/styles/app_colors.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MainPage extends StatefulWidget {

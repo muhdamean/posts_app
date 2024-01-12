@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/data/model/post.dart';
-import 'package:flutter_full_course/data/services/create_post_service.dart';
-import 'package:flutter_full_course/data/services/get_post_service.dart';
-import 'package:flutter_full_course/data/services/upload_service.dart';
-import 'package:flutter_full_course/utils/utils.dart';
+import 'package:posts_app/data/model/post.dart';
+import 'package:posts_app/data/services/create_post_service.dart';
+import 'package:posts_app/data/services/get_post_service.dart';
+import 'package:posts_app/data/services/upload_service.dart';
+import 'package:posts_app/utils/utils.dart';
 import 'package:image_picker/image_picker.dart';
 
 class PostProvider extends ChangeNotifier {

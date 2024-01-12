@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/styles/app_colors.dart';
-import 'package:flutter_full_course/styles/app_text.dart';
+import 'package:posts_app/styles/app_colors.dart';
+import 'package:posts_app/styles/app_text.dart';
 
 class Toolbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

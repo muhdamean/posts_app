@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/config/app_config.dart';
-import 'package:flutter_full_course/data/model/post.dart';
-import 'package:flutter_full_course/pages/user_page.dart';
-import 'package:flutter_full_course/styles/app_text.dart';
+import 'package:posts_app/config/app_config.dart';
+import 'package:posts_app/data/model/post.dart';
+import 'package:posts_app/pages/user_page.dart';
+import 'package:posts_app/styles/app_text.dart';
 
 class PostItem extends StatelessWidget {
   final Post post;
@@ -14,11 +14,11 @@ class PostItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => UserPage(post: post),
-                ),
-              );
+          context,
+          MaterialPageRoute(
+            builder: (context) => UserPage(post: post),
+          ),
+        );
         //Navigator.of(context).pushNamed(AppRoutes.user);
       },
       child: Padding(

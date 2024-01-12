@@ -1,4 +1,4 @@
-import 'package:flutter_full_course/data/services/base_service.dart';
+import 'package:posts_app/data/services/base_service.dart';
 
 class CreatePostService extends ServiceBase<void> {
   final String message;

@@ -1,4 +1,4 @@
-import 'package:flutter_full_course/data/model/location.dart';
+import 'package:posts_app/data/model/location.dart';
 
 class User {
   final int id;

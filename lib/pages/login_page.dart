@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/config/app_icons.dart';
-import 'package:flutter_full_course/config/app_routes.dart';
-import 'package:flutter_full_course/config/app_strings.dart';
-import 'package:flutter_full_course/provider/app_repo.dart';
-import 'package:flutter_full_course/provider/login_provider.dart';
+import 'package:posts_app/config/app_icons.dart';
+import 'package:posts_app/config/app_routes.dart';
+import 'package:posts_app/config/app_strings.dart';
+import 'package:posts_app/provider/app_repo.dart';
+import 'package:posts_app/provider/login_provider.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/post_item.dart';
-import 'package:flutter_full_course/components/toolbar.dart';
-import 'package:flutter_full_course/config/app_icons.dart';
-import 'package:flutter_full_course/config/app_routes.dart';
-import 'package:flutter_full_course/config/app_strings.dart';
-import 'package:flutter_full_course/provider/post_provider.dart';
+import 'package:posts_app/components/post_item.dart';
+import 'package:posts_app/components/toolbar.dart';
+import 'package:posts_app/config/app_icons.dart';
+import 'package:posts_app/config/app_routes.dart';
+import 'package:posts_app/config/app_strings.dart';
+import 'package:posts_app/provider/post_provider.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 

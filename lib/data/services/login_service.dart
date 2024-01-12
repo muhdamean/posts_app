@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter_full_course/config/app_config.dart';
-import 'package:flutter_full_course/data/response/login_response.dart';
-import 'package:flutter_full_course/data/services/base_service.dart';
+import 'package:posts_app/config/app_config.dart';
+import 'package:posts_app/data/response/login_response.dart';
+import 'package:posts_app/data/services/base_service.dart';
 import 'package:http/http.dart' as http;
 
-class LoginService extends ServiceBase<LoginResponse>{
+class LoginService extends ServiceBase<LoginResponse> {
   final String username;
   final String password;
 
