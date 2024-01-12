@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_course/config/app_config.dart';
+import 'package:flutter_full_course/data/model/post.dart';
 import 'package:flutter_full_course/provider/app_repo.dart';
 import 'package:provider/provider.dart';
 
 class UserPage extends StatefulWidget {
-  const UserPage({super.key});
+  final Post? post;
+  const UserPage({super.key, this.post});
 
   @override
   State<UserPage> createState() => _UserPageState();
@@ -11,12 +14,13 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   final scrollController = ScrollController();
-  //final Post post;
+  late Post? post;
   // final User? user=context.read<AppRepo>().user;
   @override
   void initState() {
     super.initState();
-  // user=  context.read<AppRepo>().user;
+    post = widget.post;
+    // user=  context.read<AppRepo>().user;
     scrollController.addListener(() {
       setState(() {
         // Do something with the scroll position, like triggering a refresh.
@@ -26,8 +30,7 @@ class _UserPageState extends State<UserPage> {
 
   @override
   Widget build(BuildContext context) {
-    final user=context.read<AppRepo>().user;
-    //inal post=ModalRoute.of(context)?.settings.arguments
+    final user = context.read<AppRepo>().user;
     return Scaffold(
       // appBar: Toolbar(title: 'User Page'),
       body: CustomScrollView(
@@ -35,8 +38,9 @@ class _UserPageState extends State<UserPage> {
         slivers: [
           SliverToBoxAdapter(
             child: MyUserAdapter(
-                offset:
-                    scrollController.hasClients ? scrollController.offset : 0),
+              offset: scrollController.hasClients ? scrollController.offset : 0,
+              post: widget.post,
+            ),
           ),
           // SliverAppBar(
           //   pinned: true,
@@ -53,9 +57,10 @@ class _UserPageState extends State<UserPage> {
             delegate: SliverChildBuilderDelegate(
               (context, index) => Container(
                 padding: const EdgeInsets.all(16),
-                child: Text('Text is test post ${user?.firstname}'),
+                child: Text(
+                    'Text is test post ${user?.firstname}, ${widget.post?.message}'),
               ),
-              childCount: 100,
+              childCount: 1,
             ),
           ),
         ],
@@ -67,7 +72,8 @@ class _UserPageState extends State<UserPage> {
 class MyUserAdapter extends StatelessWidget {
   final double offset;
   var expanded = true;
-  MyUserAdapter({super.key, required this.offset});
+  final Post? post;
+  MyUserAdapter({super.key, required this.offset, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -93,10 +99,14 @@ class MyUserAdapter extends StatelessWidget {
               alignment: expanded ? null : Alignment.center,
               width: expanded ? width : 180,
               height: expanded ? width : 180,
-              child: Image.asset(
-                'assets/temp/user1.png',
+              child: Image.network(
+                '${AppConfig.baseUrl}${post?.image}',
                 fit: BoxFit.cover,
               ),
+              // child: Image.asset(
+              //   'assets/temp/user1.png',
+              //   fit: BoxFit.cover,
+              // ),
             ),
           ),
           Positioned(
@@ -107,17 +117,17 @@ class MyUserAdapter extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               curve: Curves.fastOutSlowIn,
               alignment: expanded ? Alignment.centerLeft : Alignment.center,
-              child: const Column(
+              child: Column(
                 children: [
                   Text(
-                    'User name',
-                    style: TextStyle(
+                    '${post?.owner?.firstname} ${post?.owner?.lastname}',
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 23,
                     ),
                   ),
-                  Text('Canada'),
+                  Text('${post?.owner?.gender?.toUpperCase()}'),
                 ],
               ),
             ),
