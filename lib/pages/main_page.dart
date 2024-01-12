@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> {
             return;
           }
           setState(() {
-            debugPrint(value.index.toString());
+            //debugPrint(value.index.toString());
             currentIndex = value;
           });
         },

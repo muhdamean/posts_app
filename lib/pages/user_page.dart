@@ -32,7 +32,6 @@ class _UserPageState extends State<UserPage> {
   Widget build(BuildContext context) {
     final user = context.read<AppRepo>().user;
     return Scaffold(
-      // appBar: Toolbar(title: 'User Page'),
       body: CustomScrollView(
         controller: scrollController,
         slivers: [
