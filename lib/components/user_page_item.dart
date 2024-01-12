@@ -9,9 +9,9 @@ import 'package:posts_app/styles/app_text.dart';
 class UserPageItem extends StatelessWidget {
   final User user;
   const UserPageItem({
-    Key? key,
+    super.key,
     required this.user,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
