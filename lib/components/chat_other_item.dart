@@ -18,7 +18,7 @@ class ChatOtherItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          UserAvatar(),
+          const UserAvatar(),
           const SizedBox(
             width: 8,
           ),

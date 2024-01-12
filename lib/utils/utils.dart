@@ -26,6 +26,7 @@ class Utils {
       return result;
     } catch (e) {
       debugPrint(e.toString());
+      return null;
     }
   }
 }

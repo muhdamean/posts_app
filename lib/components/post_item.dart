@@ -13,7 +13,7 @@ class PostItem extends StatelessWidget {
     //MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(AppRoutes.user);
+        Navigator.of(context).pushNamed(AppRoutes.user, arguments: post );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(

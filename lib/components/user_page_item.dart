@@ -26,10 +26,10 @@ class UserPageItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              UserAvatar(
+              const UserAvatar(
                 size: 50,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 14,
               ),
               Column(

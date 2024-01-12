@@ -17,7 +17,7 @@ class AppRoutes {
     main: (context) => const MainPage(),
     editProfile: (context) => const EditProfilePage(),
     nearby: (context) => const NearbyPage(),
-    user: (context) =>  UserPage(),
+    user: (context) => const UserPage(),
 
   };
 

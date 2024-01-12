@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_course/components/toolbar.dart';
-import 'package:flutter_full_course/components/user_avatar.dart';
+import 'package:flutter_full_course/provider/app_repo.dart';
+import 'package:provider/provider.dart';
 
 class UserPage extends StatefulWidget {
-  UserPage({super.key});
+  const UserPage({super.key});
 
   @override
   State<UserPage> createState() => _UserPageState();
@@ -11,10 +11,12 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   final scrollController = ScrollController();
-
+  //final Post post;
+  // final User? user=context.read<AppRepo>().user;
   @override
   void initState() {
     super.initState();
+  // user=  context.read<AppRepo>().user;
     scrollController.addListener(() {
       setState(() {
         // Do something with the scroll position, like triggering a refresh.
@@ -24,6 +26,8 @@ class _UserPageState extends State<UserPage> {
 
   @override
   Widget build(BuildContext context) {
+    final user=context.read<AppRepo>().user;
+    //inal post=ModalRoute.of(context)?.settings.arguments
     return Scaffold(
       // appBar: Toolbar(title: 'User Page'),
       body: CustomScrollView(
@@ -49,7 +53,7 @@ class _UserPageState extends State<UserPage> {
             delegate: SliverChildBuilderDelegate(
               (context, index) => Container(
                 padding: const EdgeInsets.all(16),
-                child: Text('Text is test post'),
+                child: Text('Text is test post ${user?.firstname}'),
               ),
               childCount: 100,
             ),
@@ -71,10 +75,10 @@ class MyUserAdapter extends StatelessWidget {
     final progress = offset / width;
     expanded = progress < 0.04;
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       //curve: Curves.bounceIn,
       width: double.infinity,
-      height: width - (expanded?0: width-260),
+      height: width - (expanded ? 0 : width - 260),
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -82,11 +86,11 @@ class MyUserAdapter extends StatelessWidget {
             right: 0,
             left: 0,
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               padding: EdgeInsets.only(
-                top: expanded ? 0 : MediaQuery.of(context).viewPadding.top+24,
+                top: expanded ? 0 : MediaQuery.of(context).viewPadding.top + 24,
               ),
-              alignment: expanded? null: Alignment.center,
+              alignment: expanded ? null : Alignment.center,
               width: expanded ? width : 180,
               height: expanded ? width : 180,
               child: Image.asset(
@@ -100,10 +104,10 @@ class MyUserAdapter extends StatelessWidget {
             right: 24,
             bottom: 24,
             child: AnimatedAlign(
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               curve: Curves.fastOutSlowIn,
-              alignment: expanded? Alignment.centerLeft : Alignment.center,
-              child: Column(
+              alignment: expanded ? Alignment.centerLeft : Alignment.center,
+              child: const Column(
                 children: [
                   Text(
                     'User name',

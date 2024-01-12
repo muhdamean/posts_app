@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
               builder: (context) {
-                return NewPostModal();
+                return const NewPostModal();
               },
             );
             return;
@@ -86,7 +86,7 @@ class _MainPageState extends State<MainPage> {
     const Center(
       child: Text(AppStrings.posts),
     ),
-    ChatPage(),
+    const ChatPage(),
     const ProfilePage(),
   ];
 }

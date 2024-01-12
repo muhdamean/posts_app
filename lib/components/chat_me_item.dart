@@ -42,7 +42,7 @@ class ChatMeItem extends StatelessWidget {
           const SizedBox(
             width: 8,
           ),
-          UserAvatar(),
+          const UserAvatar(),
         ],
       ),
     );
